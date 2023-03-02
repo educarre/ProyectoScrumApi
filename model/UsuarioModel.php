@@ -2,7 +2,7 @@
 
 require_once 'Conexion.php';
 
-class Usuario {
+class UsuarioModel {
 
     public static function insertar($correo, $contrasena, $tipo, $descripcion){
         if(self::usuarioExiste($correo, false)){ //de este modo, no se podrán repetir los correos
