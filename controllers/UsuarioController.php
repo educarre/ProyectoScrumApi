@@ -6,11 +6,11 @@ class UsuarioController{
 
     //???public $servicio; //objeto UsuarioService
 
-    public function getUsuario($id){
-        return json_encode(UsuarioService::getUsuario($id));
+    public function getUsuario($nombreUsuario){
+        return json_encode(UsuarioService::getUsuario($nombreUsuario));
     }
 
-    public function guardarUsuario($json){//post
+    public function crearUsuario($json){//post
         $parseado = json_decode($json);
         UsuarioService::postUsuario($parseado);
     }
@@ -24,5 +24,21 @@ class UsuarioController{
         UsuarioService::deleteUsuario($id);
     }
 
-    
+    switch($_SERVER['REQUEST_METHOD']){
+        case 'GET':
+            # code...
+            break;
+
+        case 'POST':
+            # code...
+            break;
+
+        case 'PUT':
+            # code...
+            break;
+
+        case 'DELETE':
+            # code...
+            break;
+    }
 }
