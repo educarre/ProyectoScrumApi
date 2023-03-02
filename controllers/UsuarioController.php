@@ -10,12 +10,12 @@ class UsuarioController{
         return json_encode(UsuarioService::getUsuario($id));
     }
 
-    public function postUsuario($json){
+    public function guardarUsuario($json){//post
         $parseado = json_decode($json);
         UsuarioService::postUsuario($parseado);
     }
 
-    public function putUsuario($json){//mismo json que post
+    public function actualizarUsuario($json){//put: mismo json que post
         $parseado = json_decode($json);
         UsuarioService::putUsuario($parseado);
     }
