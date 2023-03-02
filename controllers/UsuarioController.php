@@ -23,4 +23,6 @@ class UsuarioController{
     public function deleteUsuario($id){
         UsuarioService::deleteUsuario($id);
     }
+
+    
 }
