@@ -17,7 +17,7 @@
      * @param string $cadenaConexion dsn de la conexion
      * @param Object $conexion objeto PDO que conecta con la BD
      */
-    static public function conectar(){
+    public static function conectar(){
         try{
             $cadenaConexion = "mysql:host=".DB_HOST.";dbname=".DB_NOMBRE.";charset=".DB_CHARSET;
             $conexion = new PDO($cadenaConexion, DB_USUARIO, DB_contrasena);
@@ -39,7 +39,7 @@
      *               una estructura clave valor, donde la clave tendrá que corresponder con lo puesto en $valoresCampos:
      *               array('campo' => valorCampo)
      */
-    static public function insertar($tabla, $nombresCampos, $valoresCampos, $arrayExecute) {
+    public static function insertar($tabla, $nombresCampos, $valoresCampos, $arrayExecute) {
 
         try{
             $consulta = "INSERT INTO $tabla ($nombresCampos) VALUES ($valoresCampos);";
@@ -60,7 +60,7 @@
      * @param string $tabla nombre de la tabla a la que pertenece la fila
      * @param string $id id de la fila a eliminar
      */
-    static public function eliminar($tabla, $id) {
+    public static function eliminar($tabla, $id) {
 
         try{
             $consulta = "DELETE FROM $tabla WHERE ID = :id;";
@@ -82,7 +82,7 @@
      * @param string $nombreCampo nombre del campo a actualizar
      * @param string $valorCampo nuevo valor del campo
      */
-    static public function actualizar($tabla, $id, $nombreCampo, $valorCampo) {
+    public static function actualizar($tabla, $id, $nombreCampo, $valorCampo) {
 
         try{
             $consulta = "UPDATE $tabla SET  $nombreCampo = :valorCampo WHERE ID = :id;";
@@ -105,7 +105,7 @@
      * @param string $id id de la fila por leer
      * @return array $campos array de los campos de la fila con sus valores
      */
-    static public function leerPorId($tabla, $id) {
+    public static function leerPorId($tabla, $id) {
 
         try{
             $campos = [];
@@ -138,7 +138,7 @@
      * @author Aleksandra Hodur
      * @param String $tabla nombre de la tabla en la BD
      */
-    static public function getNombresCampos($tabla){
+    public static function getNombresCampos($tabla){
 
         try{
             $consulta = "DESCRIBE $tabla";
@@ -161,7 +161,7 @@
      *              Tendrá una estructura clave valor, donde la clave tendrá que corresponder con lo puesto en $condiciones:
      *              array('campo' => valorCampo)
      */
-    static public function buscarId($tabla, $condiciones, $arrayExecute){
+    public static function buscarId($tabla, $condiciones, $arrayExecute){
 
         $id = -1;
 
@@ -192,7 +192,7 @@
      * @param string $condicion condición que se desea consultar
      * @param array $arrayExecute array de índice valor que se le pasa objeto resultado para realizar execute()
      */   
-    static public function listarPorCampo($tabla, $condicion, $arrayExecute) {
+    public static function listarPorCampo($tabla, $condicion, $arrayExecute) {
 
         try{
             

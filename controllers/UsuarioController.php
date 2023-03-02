@@ -6,21 +6,21 @@ class UsuarioController{
 
     //???public $servicio; //objeto UsuarioService
 
-    public function getUsuario($nombreUsuario){
+    public static function getUsuario($nombreUsuario){
         return json_encode(UsuarioService::getUsuario($nombreUsuario));
     }
 
-    public function crearUsuario($jsonUsuario){//post
+    public static function crearUsuario($jsonUsuario){//post
         $parseado = json_decode($jsonUsuario);
         UsuarioService::postUsuario($parseado);
     }
 
-    public function actualizarUsuario($jsonUsuario){//put: mismo json que post
+    public static function actualizarUsuario($jsonUsuario){//put: mismo json que post
         $parseado = json_decode($jsonUsuario);
         UsuarioService::putUsuario($parseado);
     }
 
-    public function deleteUsuario($id){
+    public static function deleteUsuario($id){
         UsuarioService::deleteUsuario($id);
     }
 
