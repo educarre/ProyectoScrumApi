@@ -10,13 +10,13 @@ class UsuarioController{
         return json_encode(UsuarioService::getUsuario($nombreUsuario));
     }
 
-    public function crearUsuario($json){//post
-        $parseado = json_decode($json);
+    public function crearUsuario($jsonUsuario){//post
+        $parseado = json_decode($jsonUsuario);
         UsuarioService::postUsuario($parseado);
     }
 
-    public function actualizarUsuario($json){//put: mismo json que post
-        $parseado = json_decode($json);
+    public function actualizarUsuario($jsonUsuario){//put: mismo json que post
+        $parseado = json_decode($jsonUsuario);
         UsuarioService::putUsuario($parseado);
     }
 
@@ -24,21 +24,38 @@ class UsuarioController{
         UsuarioService::deleteUsuario($id);
     }
 
-    switch($_SERVER['REQUEST_METHOD']){
-        case 'GET':
-            # code...
-            break;
+}
 
-        case 'POST':
-            # code...
-            break;
+switch($_SERVER['REQUEST_METHOD']){
+    case 'GET':
+        if(isset($_GET['nombreUsuario'])){
+            UsuarioController::getUsuario($_GET['nombreUsuario']);
+        }else{
+            echo "error";
+        }
+        break;
 
-        case 'PUT':
-            # code...
-            break;
+    case 'POST':
+        if(isset($_POST['jsonUsuario'])){
+            UsuarioController::crearUsuario($_POST['jsonUsuario']);
+        }else{
+            echo "error";
+        }
+        break;
 
-        case 'DELETE':
-            # code...
-            break;
-    }
+    case 'PUT':
+        if(isset($_PUT['jsonUsuario'])){
+            UsuarioController::actualizarUsuario($_PUT['jsonUsuario']);
+        }else{
+            echo "error";
+        }
+        break;
+
+    case 'DELETE':
+        if(isset($_DELETE['id'])){
+            UsuarioController::deleteUsuario();
+        }else{
+            echo "error";
+        }
+        break;
 }
