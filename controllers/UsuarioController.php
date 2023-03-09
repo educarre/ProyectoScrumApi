@@ -24,8 +24,8 @@ class UsuarioController{
         UsuarioService::deleteUsuario($id);
     }
 
-    public static function loginUsuario($nombreUsuario, $contrasena){
-        UsuarioService::loginUsuario($nombreUsuario, $contrasena);
+    public static function loginUsuario($correo, $contrasena){
+        UsuarioService::loginUsuario($correo, $contrasena);
     }
 
     public static function logoutUsuario(){

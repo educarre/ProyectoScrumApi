@@ -20,6 +20,14 @@ class UsuarioService{
         return UsuarioModel::eliminar($id);
     }
 
+    public static function loginUsuario($correo, $contrasena){
+        return UsuarioModel::loginUsuario($correo, $contrasena);
+    }
+
+    public static function logoutUsuario(){
+        return UsuarioModel::logoutUsuario();
+    }
+
     
 
 }

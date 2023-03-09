@@ -85,6 +85,10 @@ class UsuarioModel {
         }
     }
 
+    public static function loginUsuario(){
+
+    }
+
 }
     
 ?>
