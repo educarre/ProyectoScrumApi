@@ -1,16 +1,18 @@
 <?php
 
+require_once '../controllers/UsuarioModel.php';
+
 class UsuarioService{
 
-    public function getUsuario($id){
-
+    public function getUsuario($nombreUsuario){
+        return UsuarioModel::
     }
 
-    public function postUsuario(){
+    public function crearUsuario(){
         
     }
 
-    public function putUsuario(){
+    public function actualizarUsuario(){
 
     }
 

@@ -28,4 +28,38 @@ class PodcastController{
         PodcastService::deletePodcast($id);
     }
 }
+
+switch($_SERVER['REQUEST_METHOD']){
+    case 'GET':
+        if(isset($_GET['idPodcast'])){
+            PodcastController::getPodcast($_GET['idPodcast']);
+        }else if ($_GET['tag']){
+            PodcastController::getPodcastTags($_GET['tag']);
+        }
+        break;
+
+    case 'POST':
+        if(isset($_POST['jsonPodcast'])){
+            PodcastController::subirPodcast($_POST['jsonPodcast']);
+        }else{
+            echo "error";
+        }
+        break;
+
+    case 'PUT':
+        if(isset($_PUT['jsonPodcast'])){
+            PodcastController::actualizarPodcast($_PUT['jsonPodcast']);
+        }else{
+            echo "error";
+        }
+        break;
+
+    case 'DELETE':
+        if(isset($_DELETE['id'])){
+            PodcastController::deletePodcast();
+        }else{
+            echo "error";
+        }
+        break;
+}
 ?>
