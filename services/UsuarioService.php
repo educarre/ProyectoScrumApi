@@ -3,7 +3,7 @@
 class UsuarioService{
 
     public function getUsuario($id){
-
+        
     }
 
     public function postUsuario(){
