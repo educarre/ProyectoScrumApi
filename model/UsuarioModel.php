@@ -46,9 +46,9 @@ class UsuarioModel {
      * @param string $valorCampo valor nuevo que se le desea asignar al campo
      * 
      */
-    public function static actualizar($nombreCampo, $valorCampo){
+    public function static actualizar($nombreCampo, $valorCampo){//Estimada Aleksandra del Futuro, , OJO!! esto no coincide con el Service, la del Pasado
         //$conexion = new Conexion();
-        Conexion::actualizar('usuario', $this->getId(), $nombreCampo, $valorCampo);
+        Conexion::actualizar('usuario', $this->getId(), $nombreCampo, $valorCampo);//!!no hay id
     }
 
     /** 

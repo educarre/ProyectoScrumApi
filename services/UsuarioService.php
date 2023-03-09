@@ -8,16 +8,16 @@ class UsuarioService{
         return UsuarioModel::leerUsuario($correo);
     }
 
-    public function crearUsuario(){
-        UsuarioModel::insertar();
+    public function crearUsuario($usuarioNuevo){
+        return UsuarioModel::insertar($usuarioNuevo);//devolverá un booleano
     }
 
     public function actualizarUsuario(){
-
+        return UsuarioModel::actualizar($usuarioActualizado);
     }
 
-    public function deleteUsuario(){
-        
+    public function deleteUsuario($id){
+        return UsuarioModel::eliminar($id);
     }
 
     

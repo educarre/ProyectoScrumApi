@@ -10,8 +10,8 @@ class UsuarioController{
         return json_encode(UsuarioService::getUsuario($correo));
     }
 
-    public static function crearUsuario($jsonUsuario){//post
-        $parseado = json_decode($jsonUsuario);
+    public static function crearUsuario($usuarioNuevo){//post
+        $parseado = json_decode($usuarioNuevo);
         UsuarioService::postUsuario($parseado);
     }
 
