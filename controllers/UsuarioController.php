@@ -6,8 +6,8 @@ class UsuarioController{
 
     //???public $servicio; //objeto UsuarioService
 
-    public static function getUsuario($nombreUsuario){
-        return json_encode(UsuarioService::getUsuario($nombreUsuario));
+    public static function getUsuario($correo){
+        return json_encode(UsuarioService::getUsuario($correo));
     }
 
     public static function crearUsuario($jsonUsuario){//post

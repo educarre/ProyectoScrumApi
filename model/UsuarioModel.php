@@ -4,6 +4,11 @@ require_once 'Conexion.php';
 
 class UsuarioModel {
 
+    public static function leer($correo){//hay que meter nombre en la BD
+        $arrayExecute = array('correo' => $correo);
+        Conexion::listarPorCampo('usuario', "WHERE correo = :correo", $arrayExecute);
+    }
+
     public static function insertar($correo, $contrasena, $tipo, $descripcion){
         if(self::usuarioExiste($correo, false)){ //de este modo, no se podrán repetir los correos
             //$conexion = new Conexion();
