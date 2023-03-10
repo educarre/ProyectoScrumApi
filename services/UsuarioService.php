@@ -12,7 +12,7 @@ class UsuarioService{
         return UsuarioModel::insertar($usuarioNuevo);//devolverá un booleano
     }
 
-    public function actualizarUsuario(){
+    public function actualizarUsuario($usuarioActualizado){
         return UsuarioModel::actualizar($usuarioActualizado);
     }
 

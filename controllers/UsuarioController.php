@@ -10,13 +10,17 @@ class UsuarioController{
         return json_encode(UsuarioService::getUsuario($correo));
     }
 
+    public static function getUsuario(){
+        return json_enconde(UsuarioService::getUsuario());
+    }
+
     public static function crearUsuario($usuarioNuevo){//post
         $parseado = json_decode($usuarioNuevo);
         UsuarioService::postUsuario($parseado);
     }
 
-    public static function actualizarUsuario($jsonUsuario){//put: mismo json que post
-        $parseado = json_decode($jsonUsuario);
+    public static function actualizarUsuario($usuarioActualizado){//put: mismo json que post
+        $parseado = json_decode($usuarioActualizado);
         UsuarioService::putUsuario($parseado);
     }
 
@@ -36,24 +40,24 @@ class UsuarioController{
 
 switch($_SERVER['REQUEST_METHOD']){
     case 'GET':
-        if(isset($_GET['nombreUsuario'])){
-            UsuarioController::getUsuario($_GET['nombreUsuario']);
+        if(isset($_GET['correo'])){
+            UsuarioController::getUsuario($_GET['correo']);
         }else{
-            echo "error";
+            UsuarioController::getUsuario();
         }
         break;
 
     case 'POST':
-        if(isset($_POST['jsonUsuario'])){
-            UsuarioController::crearUsuario($_POST['jsonUsuario']);
+        if(isset($_POST['usuarioNuevo'])){
+            UsuarioController::crearUsuario($_POST['usuarioNuevo']);
         }else{
             echo "error";
         }
         break;
 
     case 'PUT':
-        if(isset($_PUT['jsonUsuario'])){
-            UsuarioController::actualizarUsuario($_PUT['jsonUsuario']);
+        if(isset($_PUT['usuarioActualizado'])){
+            UsuarioController::actualizarUsuario($_PUT['usuarioActualizado']);
         }else{
             echo "error";
         }
