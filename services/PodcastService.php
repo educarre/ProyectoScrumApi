@@ -1,5 +1,5 @@
 <?php
-    class PodcastServices{
+    class PodcastService{
         public function getPodcast(string $id) {
             return PodcastModel::getPodcast($id);
         }
@@ -8,8 +8,8 @@
             return PodcastModel::postPodcast();
         }
 
-        public function getPodcast(array $tags) {
-            return PodcastModel::getPodcast($tags);
+        public function getPodcastTags(array $tags) {
+            return PodcastModel::getPodcastByTags($tags);
         }
 
         public function putPodcast(){ 
