@@ -1,23 +1,23 @@
 <?php
     class PodcastServices{
-        public function getPodcast($id){
-
+        public function getPodcast(string $id) {
+            return PodcastModel::getPodcast($id);
         }
 
-        public function postPodcast(){
-
+        public function postPodcast() {
+            return PodcastModel::postPodcast();
         }
 
-        public function getPodcast($tags){
-            
+        public function getPodcast(array $tags) {
+            return PodcastModel::getPodcast($tags);
         }
 
         public function putPodcast(){ 
-
+            return PodcastModel::putPodcast();
         }
 
-        public function deletePodcast(){
-
+        public function deletePodcast($id) {
+            return PodcastModel::deletePodcast($id);
         }
         
 
