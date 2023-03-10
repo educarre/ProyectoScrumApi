@@ -1,5 +1,5 @@
 <?php
-    class PodcastServices{
+    class PodcastService{
         public function getPodcast(string $id) {
             return PodcastModel::getPodcast($id);
         }
